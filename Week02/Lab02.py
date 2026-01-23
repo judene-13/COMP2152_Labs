@@ -1,40 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import random
 
 choices = ["Rock", "Paper", "Scissors"]
@@ -46,6 +9,8 @@ playerChoice = int(playerChoice)
 if playerChoice < 1 or playerChoice > 3:
     print("Error: Choice should be between 1 and 3!")
 else:
+
+    #Determine the winner logic using if/elif/else 
     computerChoice = random.randint(1, 3)
 
     playerChoiceIndex = choices[playerChoice - 1] # ==> 0, 1, 2
