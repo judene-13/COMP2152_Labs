@@ -33,35 +33,18 @@ def display_credentials(credentials):
         print(f"  {row[1]:<14} | {row[2]:<12} | {row[3]}")
 
 
-# FIXED: Removed duplicate/empty function
 def add_credential(website, username, password):
-    conn = sqlite3.connect(DB_NAME)
-    cursor = conn.cursor()
-    cursor.execute(
-        "INSERT INTO vault (website, username, password) VALUES (?, ?, ?)",
-        (website, username, password)
-    )
-    conn.commit()
-    conn.close()
-
+    with sqlite3.connect(DB_NAME) as conn:
+        conn.execute("INSERT INTO vault (website, username, password) VALUES (?, ?, ?)",
+                     (website, username, password))
 
 def get_all_credentials():
-    conn = sqlite3.connect(DB_NAME)
-    cursor = conn.cursor()
-    cursor.execute("SELECT * FROM vault ORDER BY website ASC")
-    rows = cursor.fetchall()
-    conn.close()
-    return rows
-
+    with sqlite3.connect(DB_NAME) as conn:
+        return conn.execute("SELECT * FROM vault ORDER BY website ASC").fetchall()
 
 def find_credential(website):
-    conn = sqlite3.connect(DB_NAME)
-    cursor = conn.cursor()
-    cursor.execute("SELECT * FROM vault WHERE website = ?", (website,))
-    rows = cursor.fetchall()
-    conn.close()
-    return rows
-
+    with sqlite3.connect(DB_NAME) as conn:
+        return conn.execute("SELECT * FROM vault WHERE website = ?", (website,)).fetchall()    
 
 # --- Main (provided) ---
 if __name__ == "__main__":
