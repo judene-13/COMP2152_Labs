@@ -26,14 +26,6 @@ class PasswordChecker:
         return result
 
 
-
-
-
-
-
-
-
-
 # --- Main (provided) ---
 if __name__ == "__main__":
     print("=" * 60)

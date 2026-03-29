@@ -27,8 +27,6 @@ class SimpleScanner:
                 print(f"    Port {port}")
                 
 
-
-
 # --- Main (provided) ---
 if __name__ == "__main__":
     print("=" * 60)

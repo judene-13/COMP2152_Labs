@@ -13,9 +13,6 @@ class Report:
         self.findings = []
 
 
-
-
-
     def add_finding(self, finding):
         self.findings.append(finding)
 
@@ -32,17 +29,6 @@ class Report:
         print(f"  " + "-" * 40)
         for f in self.findings:
             print(f"    {f}")
-
-
-
-
-
-
-
-
-
-
-
 # --- Main (provided) ---
 if __name__ == "__main__":
     print("=" * 60)
